@@ -56,12 +56,7 @@ module.exports = new GenericCommand(
 
       await Memer.db.addPocket(msg.author.id, winnings);
       return `You won **${winnings.toLocaleString()}** coins. \n**Multiplier**: ${multi}% | **Percent of bet won**: ${winAmount.toFixed(2) * 100}%`;
-    } else {
-      await Memer.db.removePocket(msg.author.id, bet);
-      return `You lost **${Number(bet).toLocaleString()}** coins.`;
-    }
-  },
-  {
+    
     triggers: ['gamble', 'bet'],
     cooldown: 5 * 1000,
     donorCD: 2 * 1000,
